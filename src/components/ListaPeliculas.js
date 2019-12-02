@@ -24,7 +24,7 @@ class ListaPeliculas extends Component {
         if(!navigator.onLine) {
             let all = localStorage.getItem('movies');
             if(all) {
-                this.setState({ isLoading: false, peliculas: JSON.parse(all) });
+                this.setState({ peliculas: JSON.parse(all) });
             }
         }
         else {
@@ -36,7 +36,13 @@ class ListaPeliculas extends Component {
                     this.setState({ peliculas: data });
                     localStorage.setItem('movies', JSON.stringify(data));
                 })
-                .catch((err) => console.error(err));
+                .catch((err) => {
+                    console.error(err);
+                    let all = localStorage.getItem('movies');
+                    if(all) {
+                        this.setState({ peliculas: JSON.parse(all) });
+                    }
+                });
             }
             else {
                 fetch("https://gist.githubusercontent.com/josejbocanegra/8b436480129d2cb8d81196050d485c56/raw/48cc65480675bf8b144d89ecb8bcd663b05e1db0/data-en.json")
@@ -45,7 +51,13 @@ class ListaPeliculas extends Component {
                     this.setState({ peliculas: data });
                     localStorage.setItem('movies', JSON.stringify(data));
                 })
-                .catch((err) => console.error(err));
+                .catch((err) => {
+                    console.error(err);
+                    let all = localStorage.getItem('movies');
+                    if(all) {
+                        this.setState({ peliculas: JSON.parse(all) });
+                    }
+                });
             }
         }
     }
