@@ -5,8 +5,11 @@
     "Country": "País",
     "Budget": "Presupuesto",
     "Release": "Lanzamiento",
-    "Views": "Visitas",
+    "Views": "Vistas",
     "Million": "millón",
     "Millions": "millones",
-    "Text": "No se ha seleccionado ninguna película aún :("
+    "Text": "No se ha seleccionado ninguna película aún :(",
+    "Cast": "Reparto",
+    "Title": "No. Vistas por Película",
+    "Loading": "Cargando"
 }

@@ -4,16 +4,17 @@ import { FormattedPlural, FormattedMessage, FormattedDate, FormattedNumber } fro
 class Pelicula extends Component {
     
     render() {
+        let p = this.props.p;
         return (
-            <tr onClick={this.props.showDetail(this.props.p)}>
-                <th scope="row">{this.props.p.id}</th>
-                <td>{this.props.p.name}</td>
-                <td>{this.props.p.directedBy}</td>
-                <td>{this.props.p.country}</td>
-                <td>{this.props.p.budget} <FormattedPlural value={this.props.p.budget} one={<FormattedMessage id="Million"/>} other={<FormattedMessage id="Millions"/>} /></td>
+            <tr onClick={() => this.props.showDetail(p)}>
+                <th scope="row">{p.id}</th>
+                <td>{p.name}</td>
+                <td>{p.directedBy}</td>
+                <td>{p.country}</td>
+                <td>{p.budget} <FormattedPlural value={p.budget} one={<FormattedMessage id="Million"/>} other={<FormattedMessage id="Millions"/>} /></td>
                 <td>
                   <FormattedDate
-                    value={new Date(this.props.p.releaseDate)}
+                    value={new Date(p.releaseDate)}
                     year='numeric'
                     month='long'
                     day='numeric'
@@ -21,7 +22,7 @@ class Pelicula extends Component {
                     />
                 </td>
                 <td>
-                    <FormattedNumber value={this.props.p.views} />
+                    <FormattedNumber value={p.views} />
                 </td>
             </tr>
         );

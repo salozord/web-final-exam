@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
+
 import Pelicula from './Pelicula';
 import DetailPelicula from './DetailPelicula';
+import Grafica from './Grafica';
 
 class ListaPeliculas extends Component {
     
     constructor(props) {
         super(props);
+
         this.state = { 
             peliculas: [],
             selected: undefined
@@ -56,7 +59,7 @@ class ListaPeliculas extends Component {
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-12 col-md-8">        
-                        <table className="table">
+                        <table className="table table-striped table-hover">
                             <thead className="thead-white">
                                 <tr>
                                     <th scope="col">#</th>
@@ -72,6 +75,11 @@ class ListaPeliculas extends Component {
                                 {this.state.peliculas.map( (e,i) => <Pelicula key={i} p={e} showDetail={this.showDetail} />)}
                             </tbody>
                         </table>
+                        {
+                            (this.state.peliculas.length > 0)?
+                            <Grafica data={this.state.peliculas} /> :
+                            <FormattedMessage id="Loading" />
+                        }
                     </div>
                     <div className="col-4 offset-4 col-md-4 offset-md-0">
                         <DetailPelicula pelicula={this.state.selected} />
