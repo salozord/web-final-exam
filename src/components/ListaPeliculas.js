@@ -38,6 +38,7 @@ class ListaPeliculas extends Component {
                 })
                 .catch((err) => {
                     console.error(err);
+                    console.log("loading data previously saved");
                     let all = localStorage.getItem('movies');
                     if(all) {
                         this.setState({ peliculas: JSON.parse(all) });
@@ -53,6 +54,7 @@ class ListaPeliculas extends Component {
                 })
                 .catch((err) => {
                     console.error(err);
+                    console.log("loading data previously saved");
                     let all = localStorage.getItem('movies');
                     if(all) {
                         this.setState({ peliculas: JSON.parse(all) });
